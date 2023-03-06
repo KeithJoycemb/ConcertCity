@@ -1077,7 +1077,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1137236620116985250}
   m_Layer: 0
-  m_Name: cap2 (2)
+  m_Name: cap2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
