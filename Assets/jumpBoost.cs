@@ -4,21 +4,15 @@ using UnityEngine;
 
 public class jumpBoost : MonoBehaviour
 {
-  
-    CharacterController controller;
-    GameObject player;
- 
-    Vector3 some;
- 
-    void Awake()
+    // Start is called before the first frame update
+    void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        controller = player.GetComponent<CharacterController>();
+        
     }
- 
-    void OnTriggerStay()
+
+    // Update is called once per frame
+    void Update()
     {
-        some = new Vector3(player.transform.position.x, player.transform.position.y + 1200, player.transform.position.z);
-        controller.Move(some * Time.deltaTime);
+        
     }
 }
