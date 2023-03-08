@@ -668,6 +668,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: collectable (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4312161640687023716, guid: a635127b0f0cc384fb1f43df0ac3f83f, type: 3}
+      propertyPath: m_Intensity
+      value: 0.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312161640687023718, guid: a635127b0f0cc384fb1f43df0ac3f83f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7ce7b2845127f12449e292a054767158, type: 2}
     - target: {fileID: 4312161640687023736, guid: a635127b0f0cc384fb1f43df0ac3f83f, type: 3}
       propertyPath: m_RootOrder
       value: 4
