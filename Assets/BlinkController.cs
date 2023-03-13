@@ -9,12 +9,14 @@ public class BlinkController : MonoBehaviour
     public float blinkDuration = 0.2f; // the duration of the blink effect
     public LayerMask blinkLayerMask; // the layer mask for the blink raycast
     private bool isBlinking = false;
+    private float blinkReset;
 
     private CharacterController characterController; // reference to the character controller component
 
     void Start()
     {
         characterController = GetComponent<CharacterController>(); // get the character controller component on start
+        blinkReset = blinkDistance;
     }
 
     void Update()
@@ -23,6 +25,7 @@ public class BlinkController : MonoBehaviour
         {
             StartCoroutine(BlinkCoroutine()); // start the coroutine for the blink
         }
+
     }
 
     IEnumerator BlinkCoroutine()
@@ -51,6 +54,7 @@ public class BlinkController : MonoBehaviour
         yield return new WaitForSeconds(blinkDuration); // wait for the blink duration
         Destroy(blinkEffect); // destroy the blink effect
         isBlinking = false; // set the isBlinking flag to false
+        blinkDistance = blinkReset;
     }
 }
 
