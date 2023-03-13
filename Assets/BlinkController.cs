@@ -8,6 +8,7 @@ public class BlinkController : MonoBehaviour
     public float blinkDistance = 5f; // the distance the character will blink
     public float blinkDuration = 0.2f; // the duration of the blink effect
     public LayerMask blinkLayerMask; // the layer mask for the blink raycast
+    private bool isBlinking = false;
 
     private CharacterController characterController; // reference to the character controller component
 
@@ -18,29 +19,38 @@ public class BlinkController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E)) // change the input key to "e" for blinking
+        if (Input.GetKeyDown(KeyCode.E) && !isBlinking) // add a check for whether the character is currently blinking
         {
-            Vector3 blinkDirection = Camera.main.transform.forward; // get the camera's forward direction
-            Vector3 blinkStartPosition = transform.position; // start the blink from the character's position
-
-            RaycastHit hit; // store information about what the blink raycast hits
-
-            if (Physics.Raycast(blinkStartPosition, blinkDirection, out hit, blinkDistance, blinkLayerMask))
-            {
-                blinkStartPosition = hit.point; // if the blink hits something, start the blink from the point of impact
-            }
-            else
-            {
-                blinkStartPosition += blinkDirection * blinkDistance; // if the blink doesn't hit anything, start the blink at the maximum distance
-            }
-
-            GameObject blinkEffect = Instantiate(blinkEffectPrefab, blinkStartPosition, Quaternion.identity); // instantiate the blink effect prefab
-            Destroy(blinkEffect, blinkDuration); // destroy the blink effect after the specified duration
-
-            characterController.enabled = false; // temporarily disable the character controller component
-            transform.position = blinkStartPosition; // move the character to the new position
-            characterController.enabled = true; // re-enable the character controller component
+            StartCoroutine(BlinkCoroutine()); // start the coroutine for the blink
         }
+    }
+
+    IEnumerator BlinkCoroutine()
+    {
+        isBlinking = true; // set the isBlinking flag to true
+
+        Vector3 blinkDirection = Camera.main.transform.forward; // get the camera's forward direction
+        Vector3 blinkStartPosition = transform.position; // start the blink from the character's position
+
+        RaycastHit hit; // store information about what the blink raycast hits
+
+        if (Physics.Raycast(blinkStartPosition, blinkDirection, out hit, blinkDistance, blinkLayerMask))
+        {
+            blinkDistance = 0; // if the blink hits something, start the blink from the point of impact
+        }
+        else
+        {
+            blinkStartPosition += blinkDirection * blinkDistance; // if the blink doesn't hit anything, start the blink at the maximum distance
+        }
+
+        GameObject blinkEffect = Instantiate(blinkEffectPrefab, blinkStartPosition, Quaternion.identity); // instantiate the blink effect prefab
+
+        characterController.enabled = false; // temporarily disable the character controller component
+        transform.position = blinkStartPosition; // move the character to the new position
+        characterController.enabled = true;
+        yield return new WaitForSeconds(blinkDuration); // wait for the blink duration
+        Destroy(blinkEffect); // destroy the blink effect
+        isBlinking = false; // set the isBlinking flag to false
     }
 }
 
