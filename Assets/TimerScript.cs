@@ -1,19 +1,13 @@
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
-public class blinkTimer : MonoBehaviour
+public class TimerScript : MonoBehaviour
 {
     public float timerLength = 5f;
     private float timer;
     private bool timerActive;
-    public Text timerText;
-    TMPro.TMP_Text text;
+    public TMP_Text timerText;
 
-    private void Awake()
-    {
-        text = GetComponent<TMPro.TMP_Text>();
-
-    }
     void Start()
     {
         timerActive = false;
@@ -32,7 +26,7 @@ public class blinkTimer : MonoBehaviour
         if (timerActive)
         {
             timer -= Time.deltaTime;
-            timerText.text = Mathf.Round(timer).ToString();
+            timerText.text = timer.ToString("F2");
 
             if (timer <= 0f)
             {
