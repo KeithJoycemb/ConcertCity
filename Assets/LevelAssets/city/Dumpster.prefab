@@ -258,6 +258,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3122752780818104501}
+  - component: {fileID: 4143305131582682433}
   m_Layer: 0
   m_Name: Dumpster
   m_TagString: Untagged
@@ -272,9 +273,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2314269354754480655}
-  m_LocalRotation: {x: -0.4933877, y: 0.50652605, z: 0.50652605, w: 0.4933877}
+  m_LocalRotation: {x: -0.49338588, y: 0.5065278, z: 0.5065278, w: 0.49338588}
   m_LocalPosition: {x: 22.137, y: 0.566, z: 18.145172}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2917, y: 1.2917, z: 1.2917}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6069712156721922006}
@@ -298,6 +299,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 91.506}
+--- !u!64 &4143305131582682433
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2314269354754480655}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &2521715228910465803
 GameObject:
   m_ObjectHideFlags: 0
@@ -1056,6 +1071,7 @@ GameObject:
   - component: {fileID: 6069712156721922006}
   - component: {fileID: 8516568930591428630}
   - component: {fileID: 6355938287424518383}
+  - component: {fileID: 241267296318953167}
   m_Layer: 0
   m_Name: Box001
   m_TagString: Untagged
@@ -1128,6 +1144,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &241267296318953167
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5165457697010734290}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5060444177187149915, guid: eda0b7d11eec25d41ba9267395debaf8, type: 3}
 --- !u!1 &5312356630598046380
 GameObject:
   m_ObjectHideFlags: 0

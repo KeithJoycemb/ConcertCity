@@ -10,6 +10,10 @@ public class BlinkController : MonoBehaviour
     public LayerMask blinkLayerMask; // the layer mask for the blink raycast
     private bool isBlinking = false;
     private float blinkReset;
+    private AudioSource audioSource;
+    private AudioSource audioSource2;
+    public AudioClip blinkSucess;
+    public AudioClip blinkFail;
 
     private CharacterController characterController; // reference to the character controller component
 
@@ -17,6 +21,8 @@ public class BlinkController : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>(); // get the character controller component on start
         blinkReset = blinkDistance;
+        audioSource = GetComponent<AudioSource>();
+        audioSource2 = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -40,10 +46,13 @@ public class BlinkController : MonoBehaviour
         if (Physics.Raycast(blinkStartPosition, blinkDirection, out hit, blinkDistance, blinkLayerMask))
         {
             blinkDistance = 0; // if the blink hits something, start the blink from the point of impact
+
+            audioSource2.PlayOneShot(blinkFail);
         }
         else
         {
             blinkStartPosition += blinkDirection * blinkDistance; // if the blink doesn't hit anything, start the blink at the maximum distance
+            audioSource.PlayOneShot(blinkSucess);
         }
 
         GameObject blinkEffect = Instantiate(blinkEffectPrefab, blinkStartPosition, Quaternion.identity); // instantiate the blink effect prefab
