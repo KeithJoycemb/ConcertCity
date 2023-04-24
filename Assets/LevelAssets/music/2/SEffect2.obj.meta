@@ -3,7 +3,12 @@ guid: c916501f7c085e34eb9c77286f4a556a
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pTorus5_initialShadingGroupMat
+    second: {fileID: 2100000, guid: cad210e78bb16fe4a971a101cfb2b3d0, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
