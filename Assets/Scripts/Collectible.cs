@@ -9,8 +9,8 @@ public class Collectible : MonoBehaviour
     public static int total;
     public AudioClip pickupSound;
     private MeshRenderer meshRenderer;
-    private Collider collider;
-    private Light light;
+    private new Collider collider;
+    private new Light light;
 
     private AudioSource audioSource;
 
