@@ -48,4 +48,9 @@ public class Collectible : MonoBehaviour
         yield return new WaitForSeconds(pickupSound.length);
         Destroy(gameObject);
     }
+    void OnEnable()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
 }

@@ -15,4 +15,17 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
+    private void Update()
+    {
+       
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            SceneManager.LoadScene(0);
+        }
+    }
+    void OnEnable()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
 }

@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: speaker_small_Mesh_initialShadingGroupMat
-    second: {fileID: 1567818261435876064, guid: 54a4576f0437eab48a24e1df90c95279, type: 3}
+    second: {fileID: 2100000, guid: e561d72bc5fdb734587d612a5ea751a2, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
