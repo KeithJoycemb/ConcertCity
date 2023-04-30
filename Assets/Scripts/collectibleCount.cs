@@ -12,12 +12,11 @@ public class collectibleCount : MonoBehaviour
 
     private void Awake()
     {
-
         text = GetComponent<TMPro.TMP_Text>();
         totalCollectibles = FindObjectsOfType<Collectible>().Length;
     }
 
-    void start() => UpdateCount();
+    void Start() => UpdateCount();
 
     void OnEnable() => Collectible.OnCollected += OnCollectibleCollected;
     void OnDisable() => Collectible.OnCollected -= OnCollectibleCollected;
@@ -34,8 +33,11 @@ public class collectibleCount : MonoBehaviour
             SceneManager.LoadScene(2);
         }
     }
+
+    void OnDestroy() => Collectible.OnCollected -= OnCollectibleCollected;
+
     void UpdateCount()
     {
-        text.text = $"{count}/{Collectible.total}";
+        text.text = $"{count}/{totalCollectibles}";
     }
 }
