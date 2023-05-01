@@ -5,7 +5,6 @@ public class DisplayImage : MonoBehaviour
 {
     public Image image;
     public float displayTime = 2f;
-
     private bool isDisplaying = false;
 
     private void Start()
@@ -13,9 +12,9 @@ public class DisplayImage : MonoBehaviour
         image.color = new Color(image.color.r, image.color.g, image.color.b, 0);
     }
 
-    private void Update()
+    public void ShowImage()
     {
-        if (Input.GetMouseButtonDown(0) && !isDisplaying)
+        if (!isDisplaying)
         {
             isDisplaying = true;
             image.color = new Color(image.color.r, image.color.g, image.color.b, 1);
@@ -29,3 +28,7 @@ public class DisplayImage : MonoBehaviour
         image.color = new Color(image.color.r, image.color.g, image.color.b, 0);
     }
 }
+
+
+
+
